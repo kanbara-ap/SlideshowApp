@@ -45,22 +45,20 @@ class ViewController: UIViewController {
     @IBAction func nextimage(_ sender: Any) {
         if timer == nil{
             timecount += 1
-            DisplayImage(&timecount)
+            animateView(imageview)
         }
     }
-    
     @IBAction func backimage(_ sender: Any) {
         if timer == nil{
             timecount -= 1
-            DisplayImage(&timecount)
+            animateView(imageview)
         }
         
     }
-    
     //スライドショー用の関数
     @objc func updateTimer(_ timer:Timer){
         timecount += 1
-        DisplayImage(&timecount)
+        animateView(imageview)
     }
     
     @IBAction func autoimage(_ sender: Any) {
@@ -77,6 +75,8 @@ class ViewController: UIViewController {
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
 
+    
+    
     //画像表示用の関数
     func DisplayImage(_ count : inout Int){
         if (count <= 3 && count >= 0){
@@ -88,7 +88,18 @@ class ViewController: UIViewController {
             count = 3
             imageview.image = imageset[count]
         }
+    
     }
     
+    func animateView(_ viewAnimate: UIView)  {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+            viewAnimate.alpha = 0
+        } completion: { (_) in
+            self.DisplayImage(&self.timecount)
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+                viewAnimate.alpha = 1
+            }
+        }
+    }
 }
 
