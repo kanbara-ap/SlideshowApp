@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xLu-fU-T1h">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,6 +56,15 @@
                                     <outletCollection property="gestureRecognizers" destination="DIE-a3-rAo" appends="YES" id="OjV-Lp-hpf"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gc3-RZ-nLP">
+                                <rect key="frame" x="174" y="489" width="82" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="一覧表示"/>
+                                <connections>
+                                    <segue destination="xLu-fU-T1h" kind="show" id="6bu-Cd-zb5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -80,7 +90,80 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-1698" y="151"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="gzz-jQ-ENX">
+            <objects>
+                <viewController id="xLu-fU-T1h" customClass="ThirdViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uOU-V3-JGp">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-tb-WlG">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="739"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="696" id="Cdh-Y2-w30"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CeL-Sm-5uB">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="testcell" id="9H2-a2-Kdn">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rPu-pY-FQk">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rli-LK-ZJw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rli-LK-ZJw" firstAttribute="leading" secondItem="rPu-pY-FQk" secondAttribute="leading" id="7gk-xF-GwE"/>
+                                                <constraint firstItem="Rli-LK-ZJw" firstAttribute="top" secondItem="rPu-pY-FQk" secondAttribute="top" id="LoO-58-XOo"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rli-LK-ZJw" secondAttribute="bottom" id="Ydc-Jy-Dyx"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rli-LK-ZJw" secondAttribute="trailing" id="nrn-3C-yXe"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xLu-fU-T1h" id="hMr-Y4-HQK"/>
+                                    <outlet property="delegate" destination="xLu-fU-T1h" id="6GI-P8-QUZ"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEq-wD-Dfl">
+                                <rect key="frame" x="152" y="740" width="124" height="82"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="スライドショー"/>
+                                <connections>
+                                    <segue destination="LKB-6C-cZb" kind="unwind" unwindAction="unwind:" id="2iz-n2-RIL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DST-Qy-pNR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xKD-tb-WlG" firstAttribute="centerX" secondItem="sEq-wD-Dfl" secondAttribute="centerX" id="1UU-Um-hGq"/>
+                            <constraint firstItem="sEq-wD-Dfl" firstAttribute="centerX" secondItem="uOU-V3-JGp" secondAttribute="centerX" id="39W-DM-ERl"/>
+                            <constraint firstItem="DST-Qy-pNR" firstAttribute="bottom" secondItem="sEq-wD-Dfl" secondAttribute="bottom" constant="50" id="JLs-Mm-O2A"/>
+                            <constraint firstItem="xKD-tb-WlG" firstAttribute="leading" secondItem="uOU-V3-JGp" secondAttribute="leading" id="NYj-SF-fzZ"/>
+                            <constraint firstItem="sEq-wD-Dfl" firstAttribute="top" secondItem="xKD-tb-WlG" secondAttribute="bottom" id="TUb-NW-Ww9"/>
+                            <constraint firstItem="xKD-tb-WlG" firstAttribute="top" secondItem="DST-Qy-pNR" secondAttribute="top" id="x0b-Oh-NUO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SCR-au-Tdh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nOS-if-Lf0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LKB-6C-cZb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-669" y="537"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="8Bx-bl-nQE">
@@ -121,7 +204,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2W-bG-i4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="CX7-op-dcj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="800" y="84"/>
+            <point key="canvasLocation" x="-670" y="-120"/>
         </scene>
     </scenes>
     <resources>
