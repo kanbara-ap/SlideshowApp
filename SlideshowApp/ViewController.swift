@@ -76,18 +76,23 @@ class ViewController: UIViewController {
     
     @IBAction func autoimage(_ sender: Any) {
         if timer == nil {
-            nextbottun.isEnabled = false
+            nextbutton.isEnabled = false
+            backbutton.isEnabled = false
+            
             //２秒ごとにupdateTimerを動かす
             self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTimer(_:)), userInfo: nil, repeats: true)
         } else{
             self.timer.invalidate()
             self.timer = nil
-            nextbottun.isEnabled = true
+            nextbutton.isEnabled = true
+            backbutton.isEnabled = true
         }
     }
-    @IBOutlet weak var nextbottun: UIButton!
     
     
+    @IBOutlet weak var backbutton: UIButton!
+    
+    @IBOutlet weak var nextbutton: UIButton!
     //SecondViewから画面を戻す用の関数
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
