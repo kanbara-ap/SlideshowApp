@@ -24,6 +24,8 @@ class SecondViewController: UIViewController {
         if controller.timer != nil{
             controller.timer.invalidate()
             controller.timer = nil
+            controller.nextbutton.isEnabled = true
+            controller.backbutton.isEnabled = true
         }
         SecondImage.image =  i
         
